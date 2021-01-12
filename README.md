@@ -1,30 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React Testing
+In this project i try all the react testing best practices
 
-## Getting Started
 
-First, run the development server:
+## Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Create an empty tsconfig.json file
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Add typescript requirement
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+    yarn add --dev typescript @types/react @types/node
 
-## Learn More
+Install requirements  
 
-To learn more about Next.js, take a look at the following resources:
+    yarn add --dev jest @testing-library/react @types/jest @testing-library/jest-dom ts-jest
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add test script in the package  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    "scripts": {
+        ...
+        "test": "jest",
+        "test:watch": "jest --watch"
+    },
 
-## Deploy on Vercel
+Crea il __jest.config.js__
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    module.exports = {
+        preset: 'ts-jest',
+        testEnvironment: 'jsdom',
+        globals: {
+            "ts-jest": {
+                tsConfig: "tsconfig.jest.json" //punta al tsconfig per l'ambiente 
+            }
+        }
+    };
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Crea il tsconfig adatto per l'ambiente jest
+
+    {
+    "extends": "./tsconfig.json",
+        "compilerOptions": {
+            "jsx": "react"
+        }
+    }
+
+Runna i test
+
+    yarn jest //runna una volta
+    yarn jest:watch //rimane in ascolto delle modifiche e runna
+
+## Referenze
+
+    https://github.com/vercel/next.js/issues/8663
