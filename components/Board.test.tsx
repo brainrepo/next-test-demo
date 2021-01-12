@@ -9,10 +9,10 @@ describe('<Board />', () => {
     })
     it('it have to show hits', () => {
         const { getByText } = render(<Board hits={12} points={22} />);
-        expect(getByText(/Hits: 12/))
+        getByText(/Hits: 12/)
     })
     it('it have to show points', () => {
         const { getByText } = render(<Board hits={12} points={22} />);
-        expect(getByText(/Points: 22/))
+        getByText(/Points: 22/)
     })
 })
