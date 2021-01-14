@@ -48,6 +48,11 @@ Runna i test
     yarn jest //runna una volta
     yarn jest:watch //rimane in ascolto delle modifiche e runna
 
+## Cheatsheet
+You can refer to online cheatsheet for react testing library
+
+https://testing-library.com/docs/react-testing-library/cheatsheet/
+
 ## Referenze
 
     https://github.com/vercel/next.js/issues/8663
